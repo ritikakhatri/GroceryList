@@ -36,12 +36,15 @@ class GroceryContainer extends Component {
 		console.log(this.state.addtoCart)
 	}
 	render(){
-
+		let addCart; 
+		if(this.state.addtoCart.length > 0) {
+			addCart = <AddCart add={this.state.addtoCart} />
+		}
 		return(
 			<div>
 				<AddBar test={(item)=>this.dataCallBack(item)}/>
 				<GroceryList test1={this.state.itemName} deleteCallback={this.deleteCallBack} addCart={this.addCart}/>
-				<AddCart add={this.state.addtoCart} />
+				{addCart}
 
 			</div>
 		)
